@@ -24,10 +24,9 @@
     <ul>
       <li class="movie-item" v-for="result in results" :key="result.title">
 
-         <img 
-          src="https://image.tmdb.org/t/p/w150_and_h225_bestv2/p64TtbZGCElxQHpAMWmDHkWJlH2.jpg"
+         <img v-bind:src="'https://image.tmdb.org/t/p/w150_and_h225_bestv2' + result.poster_path" v-bind:alt="result.title + 'Poster'" class="poster-image">
           alt="Title of Movie Poster"
-          class="poster-image"
+          
         />
 
         <!-- TODO: Combine base URL with poster_path value in data to make the image src URL (Hint: Use v-bind.). -->
@@ -59,9 +58,7 @@
        
 
         <ul class="genre-list">
-          <li v-for="genre in results.genres" v-bind:class="genre" v-bind:key="genre">{{ genres }}
-          
-          <li>{{ result.genres }}</li>
+          <li v-for="genre in results.genres" :key="genre">{{ genres }}</li>
          
         </ul>
       </li>
